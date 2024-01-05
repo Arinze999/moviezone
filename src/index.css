@@ -1,13 +1,290 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Outfit:wght@500&family=Poppins&family=Tilt+Neon&display=swap");
+
+:root {
+  --regularbg: #29374d;
+  --regularlightbg: #3f5475;
+  --blackbg: #000000;
+  --blacklight: #9c939333;
+  --blackbglt: rgba(100, 100, 100, 0.12);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: var(--blackbg);
+  font-family: "Poppins", sans-serif;
+}
+
+.hover-up:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.movie {
+  background-color: var(--blackbglt);
+  box-shadow: -2px 0px 16px -4px var(--blackbg);
+  transition: all 0.35s ease-in-out;
+}
+
+.movie-up:hover {
+  /* transform: scale(1.06); */
+  transform: translateY(-8px);
+  box-shadow: 0px 13px 24px 0px var(--blackbg);
+}
+
+.banner {
+  /* box-shadow: -1px 7px 13px 0px rgb(43, 42, 42); */
+}
+
+.row {
+  background-color: rgba(100, 100, 100, 0.26);
+  height: 30rem;
+  overflow: hidden;
+}
+
+.acc-nav {
+  /* top:20%; */
+  transition: all 0.3s ease-in-out;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.lazy-img {
+  opacity: 0.3;
+  animation: loadingAnimation 0.5s linear infinite alternate;
+}
+
+.loader-img {
+  opacity: 0.3;
+  animation: loadingAnimation 0.5s linear infinite alternate;
+}
+
+.lazy-text {
+  opacity: 0.3;
+  animation: loadingAnimation 0.5s linear infinite alternate;
+  height: 0.7rem;
+}
+
+.lazy-text:last-child {
+  width: 8rem;
+}
+
+.lazy-text:first-child {
+  width: 6rem;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-color: hsl(200, 20%, 15%);
+  }
+  100% {
+    background-color: hsl(199, 20%, 30%);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .lazy-img {
+    height: 80px;
+  }
+  .loader-img {
+    height: 80px;
+  }
+}
+
+/* movie in view */
+.in-view {
+  transform: scale(0.8);
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+  position: fixed;
+  top: -10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--blackbg);
+  box-shadow: 0px 1px 13px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  padding: 2rem;
+  overflow: hidden;
+  text-wrap: wrap;
+  height: fit-content;
+}
+
+.in-view2 {
+  transform: scale(0.8);
+  transition: all 0.5s ease-in-out;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--blackbg);
+  box-shadow: 0px 1px 13px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  padding: 2rem;
+  overflow: hidden;
+  text-wrap: wrap;
+  height: fit-content;
+  animation: animatein 1s forwards;
+}
+
+.out-view {
+  animation: animateout 3s forwards;
+}
+
+@keyframes animateout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animatein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* cast styles */
+
+.p-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 6rem;
+}
+
+.profile p {
+  text-align: center;
+}
+
+.cast-img {
+  width: 4rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.cast-loader {
+  width: 4rem;
+  height: 6rem;
+  opacity: 0.3;
+  animation: loadingAnimation 0.5s linear infinite alternate;
+}
+
+.cast-img img {
+  width: 100%;
+  height: auto;
+}
+
+/* movie modal alert styles */
+.full-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* modal component styles */
+.modal-alert {
+  transition: all 0.4s ease-in-out;
+  position: fixed;
+  top: -50%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.836);
+  z-index: 2001;
+  padding: 2rem;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.show-modal {
+  top: 0;
+  opacity: 1;
+}
+
+/* interactive modal */
+.modal-inter {
+  transition: all 0.4s ease-in-out;
+  position: fixed;
+  top: -50%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.836);
+  z-index: 2001;
+  padding: 2rem;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.show-interact {
+  top: 0;
+  opacity: 1;
+}
+
+@media (min-width: 991px) {
+  .in-view {
+    left: 20%;
+    right: 20%;
+    max-width: 40rem;
+  }
+  .in-view2 {
+    left: 20%;
+    right: 20%;
+    max-width: 40rem;
+  }
+  .modal-alert,
+  .modal-inter {
+    left: 20%;
+    right: 20%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .in-view {
+    left: 30%;
+    right: 30%;
+  }
+  .in-view2 {
+    left: 30%;
+    right: 30%;
+  }
+  .modal-alert,
+  .modal-inter {
+    left: 30%;
+    right: 30%;
+  }
 }
