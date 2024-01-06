@@ -46,7 +46,7 @@ export default function Navbar() {
         {user?.email ? (
           <div className="nav-bar">
             <Link to="/account">
-              <button className="text-white pr-4 hover-up">Account</button>
+              <button className="text-white pr-4 shrink py-2">Account</button>
             </Link>
             <button
               onClick={handleInteract}
@@ -58,7 +58,7 @@ export default function Navbar() {
         ) : (
           <div className="nav-bar">
             <Link to="/login">
-              <button className="text-white pr-4 hover-up py-2">Sign In</button>
+              <button className="text-white pr-4 shrink py-2">Sign In</button>
             </Link>
             <Link to="/signup">
               <button className="shrink bg-red-600 px-6 py-2 rounded cursor-pointer text-white">

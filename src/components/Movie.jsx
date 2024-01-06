@@ -191,7 +191,7 @@ export default function Movie({ item }) {
               className={
                 !fullmovieModal
                   ? "text-xs flex my-2"
-                  : "text-xl flex my-2 cursor-pointer"
+                  : "text-sm flex my-2 cursor-pointer"
               }
             >
               {see ? (
@@ -209,7 +209,7 @@ export default function Movie({ item }) {
               className={
                 !fullmovieModal
                   ? "text-xs flex my-2"
-                  : "text-xl flex my-2 cursor-pointer"
+                  : "text-sm flex my-2 cursor-pointer"
               }
             >
               {haveSeen ? (
@@ -229,7 +229,7 @@ export default function Movie({ item }) {
               {!fullmovieModal ? (
                 "More Details.."
               ) : (
-                <p className="text-lg">Close</p>
+                <p className="text-md">Close</p>
               )}
             </button>
             <div className="flex flex-row justify-between my-1">
@@ -256,9 +256,9 @@ export default function Movie({ item }) {
             </div>
             <div>
               {fullmovieModal && (
-                <p className="my-2 text-xl">
+                <div className="my-2 text-md">
                   <Cast item={item} />
-                </p>
+                </div>
               )}
             </div>
           </div>

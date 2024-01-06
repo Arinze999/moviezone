@@ -41,7 +41,7 @@ export default function Cast({ item }) {
       {castLoad ? (
         <div>
           <h1 className="text-center my-4">Cast</h1>
-          <div className="p-row">
+          <div className="p-row ">
             <Castload />
             <Castload />
             <Castload />
@@ -59,13 +59,13 @@ export default function Cast({ item }) {
                   <div className="cast-img">
                     {imageLoading && <Castload />}
                     <img
-                      className={imageLoading ? "hideen" : "out-view"}
+                      className={imageLoading ? "hiden" : "out-view"}
                       onLoad={() => setImageLoading(false)}
                       src={`https://image.tmdb.org/t/p/original/${each?.profile_path}`}
                       alt={each.name}
                     />
                   </div>
-                  <p className="text-sm">{each.name}</p>
+                  <p className="text-xs whitespace-normal overflow-hidden">{each.name}</p>
                 </div>
               </span>
             ))}

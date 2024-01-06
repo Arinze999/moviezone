@@ -64,7 +64,7 @@ export default function Account() {
             inView(favourites);
           }}
           ref={favourites}
-          className="p-4 zoom z-50 hover:text-white active:text-yellow-500"
+          className="p-4 zoom z-50 hover:text-white active:text-yellow-500 text-sm md:text-md"
         >
           Favourites
         </li>
@@ -73,7 +73,7 @@ export default function Account() {
             inView(disliked);
           }}
           ref={disliked}
-          className="p-4 zoom z-50 hover:text-white active:text-yellow-500"
+          className="p-4 zoom z-50 hover:text-white active:text-yellow-500 text-sm md:text-md"
         >
           Disliked
         </li>
@@ -82,7 +82,7 @@ export default function Account() {
             inView(alreadyseen);
           }}
           ref={alreadyseen}
-          className="p-4 zoom z-50 hover:text-white active:text-yellow-500"
+          className="p-4 zoom z-50 hover:text-white active:text-yellow-500 text-sm md:text-md"
         >
           Already seen
         </li>
@@ -91,7 +91,7 @@ export default function Account() {
             inView(watchlist);
           }}
           ref={watchlist}
-          className="p-4 zoom z-50 hover:text-white active:text-yellow-500"
+          className="p-4 zoom z-50 hover:text-white active:text-yellow-500 text-sm md:text-md"
         >
           Watchlist
         </li>
