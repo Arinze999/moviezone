@@ -106,11 +106,11 @@ body {
 
 /* movie in view */
 .in-view {
-  transform: scale(0.8);
+  transform: scale(0.95);
   transition: all 0.5s ease-in-out;
   z-index: 1000;
   position: fixed;
-  top: -10%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -255,8 +255,20 @@ body {
   opacity: 1;
 }
 
+/* navbar */
+.nav-bar {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 991px) {
   .in-view {
+    transform: scale(0.8);
     left: 20%;
     right: 20%;
     max-width: 40rem;

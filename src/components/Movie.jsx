@@ -183,9 +183,7 @@ export default function Movie({ item }) {
             </p>
             <div>
             {fullmovieModal && (
-                <p className="text-xl">
-                  <span className="text-lg">{item.overview}</span>
-                </p>
+                  <p className="text-sm md:text-md whitespace-normal">{item.overview}</p>
               )}
             </div>
             <div

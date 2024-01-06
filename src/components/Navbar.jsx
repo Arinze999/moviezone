@@ -44,7 +44,7 @@ export default function Navbar() {
           </h1>
         </Link>
         {user?.email ? (
-          <div>
+          <div className="nav-bar">
             <Link to="/account">
               <button className="text-white pr-4 hover-up">Account</button>
             </Link>
@@ -56,9 +56,9 @@ export default function Navbar() {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="nav-bar">
             <Link to="/login">
-              <button className="text-white pr-4 hover-up">Sign In</button>
+              <button className="text-white pr-4 hover-up py-2">Sign In</button>
             </Link>
             <Link to="/signup">
               <button className="shrink bg-red-600 px-6 py-2 rounded cursor-pointer text-white">
