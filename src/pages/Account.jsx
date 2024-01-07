@@ -10,6 +10,7 @@ import { UserAuth } from "../context/AuthContext";
 import Username from "../components/Username";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function Account() {
   const user = UserAuth();
@@ -107,6 +108,7 @@ export default function Account() {
       ) : (
         ""
       )}
+      <Footer/>
     </>
   );
 }

@@ -106,7 +106,7 @@ export default function Watchlist() {
                   <p className={!(selectedMovie === index) ? "text-xs" : ""}>
                     {item.date}
                   </p>
-                  <p>{!(selectedMovie === index) ? "" : item.overview}</p>
+                  <p className="text-xs sm:text-md md:text-md lg:text-lg xl:text-lg whitespace-normal">{!(selectedMovie === index) ? "" : item.overview}</p>
                   <button
                     onClick={() => {
                       handleShowModal(index);

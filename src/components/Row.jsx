@@ -36,7 +36,9 @@ export default function Row({ title, fetchURL, rowID }) {
   return (
     <>
       <div className="md:mx-10 sm:mx-4 rounded-lg row pb-6">
-        <h2 className="text-white font-bold md:text-xl p-8">{title}</h2>
+        <h2 className="text-white font-bold md:text-xl p-8 flex items-center">{title}
+        <img className="w-[2rem]" src={process.env.PUBLIC_URL + "/images/icons.jpg/icons8-movie-48.png"} alt="clip.jpg" />
+        </h2>
         <div className="relative flex items-center group">
           <MdChevronLeft
             onClick={slideLeft}

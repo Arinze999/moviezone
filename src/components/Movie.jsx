@@ -183,7 +183,7 @@ export default function Movie({ item }) {
             </p>
             <div>
             {fullmovieModal && (
-                  <p className="text-sm md:text-md whitespace-normal">{item.overview}</p>
+                  <p className="text-xs sm:text-md md:text-md lg:text-lg xl:text-lg whitespace-normal">{item.overview}</p>
               )}
             </div>
             <div
@@ -191,7 +191,7 @@ export default function Movie({ item }) {
               className={
                 !fullmovieModal
                   ? "text-xs flex my-2"
-                  : "text-sm flex my-2 cursor-pointer"
+                  : "hidden text-sm my-2 cursor-pointer"
               }
             >
               {see ? (
@@ -209,7 +209,7 @@ export default function Movie({ item }) {
               className={
                 !fullmovieModal
                   ? "text-xs flex my-2"
-                  : "text-sm flex my-2 cursor-pointer"
+                  : " hidden text-sm my-2 cursor-pointer"
               }
             >
               {haveSeen ? (
@@ -235,7 +235,7 @@ export default function Movie({ item }) {
             <div className="flex flex-row justify-between my-1">
               <p
                 onClick={saveShow}
-                className={!fullmovieModal ? "" : "text-2xl flex my-2"}
+                className={!fullmovieModal ? "" : "hidden text-2xl my-2"}
               >
                 {like ? (
                   <FaHeart className="my-1 text-yellow-500 transform transition-transform duration-300 ease-in-out hover:scale-110 active:scale-120" />
@@ -245,7 +245,7 @@ export default function Movie({ item }) {
               </p>
               <p
                 onClick={toHate}
-                className={!fullmovieModal ? "" : "text-2xl flex my-2"}
+                className={!fullmovieModal ? "" : "hidden text-2xl my-2"}
               >
                 {dislike ? (
                   <FaThumbsDown className="text-yellow-500 transform transition-transform duration-300 ease-in-out hover:scale-110 active:scale-120" />
