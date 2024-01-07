@@ -43,7 +43,7 @@ export default function Home() {
       <div className="text-white wall relative">
           <img src={process.env.PUBLIC_URL + "/images/wall5.png"} alt="" />
           <div className="wall-fix"></div>
-          <small className="text-white absolute top-15 left-12 italic w-[20%] wall-text">
+          <small className="text-white absolute top-15 right-12 italic w-[20%] wall-text">
             Evergreen Classics, that have stood the test of time "TOP RATED"
           </small>
         </div>
