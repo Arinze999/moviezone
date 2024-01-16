@@ -41,7 +41,7 @@ export default function Cast({ item }) {
       {castLoad ? (
         <div>
           <h1 className="text-center my-4">Cast</h1>
-          <div className="p-row ">
+          <div className="p-row">
             <Castload />
             <Castload />
             <Castload />
@@ -65,7 +65,9 @@ export default function Cast({ item }) {
                       alt={each.name}
                     />
                   </div>
-                  <p className="text-xs whitespace-normal overflow-hidden">{each.name}</p>
+                  <p className="text-xs whitespace-normal overflow-hidden">
+                    {each.name}
+                  </p>
                 </div>
               </span>
             ))}
