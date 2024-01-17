@@ -257,13 +257,29 @@ body {
 
 /* navbar */
 .nav-bar {
-  position: absolute;
-  top: 3%;
-  right: 2%;
+  position: fixed;
+  padding: 0.5rem;
+  top: 5%;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.466);
+  /* height: 10rem; */
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.nav-toggle {
+  position: fixed;
+  right: 3%;
+  top: 2%;
+  color: white;
+}
+
+.show-nav {
+  right: -50%;
 }
 
 /* footer */
@@ -277,8 +293,9 @@ footer {
 }
 
 footer div {
-  text-align: center;
+  text-align: left;
   padding: 1rem;
+  /* border: 1px solid red; */
 }
 
 footer div ul {
@@ -287,13 +304,36 @@ footer div ul {
 }
 
 footer ul li {
-  padding: .5rem;
+  padding: 0.5rem;
   transition: all 0.4s ease-in-out;
 }
 
 footer ul li :hover {
   color: white;
 }
+
+.foot-1 {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.footer-logo {
+  border: 1px solid red;
+  width: 3rem;
+  padding: 0;
+  display: flex;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.footer-talk {
+  max-width: 500px;
+}
+
 
 /* backround graphics */
 .wall {
@@ -364,9 +404,21 @@ footer ul li :hover {
   footer div ul {
     flex-direction: column;
   }
+  .nav-bar {
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    height: fit-content;
+  }
+  .nav-toggle {
+    display: none;
+  }
 }
-
-
 
 @media (min-width: 1400px) {
   .in-view {
@@ -381,5 +433,14 @@ footer ul li :hover {
   .modal-inter {
     left: 30%;
     right: 30%;
+  }
+  .nav-bar {
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }

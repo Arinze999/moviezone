@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import ModalInteractive from "./ModalInteractive";
+import {
+  AiOutlineClose,
+  AiOutlineMenu,
+  AiOutlineMenuFold,
+  AiOutlineMenuUnfold,
+} from "react-icons/ai";
 
 export default function Navbar() {
   const { user, logOut } = UserAuth();
@@ -9,6 +15,9 @@ export default function Navbar() {
 
   //state for interactive modal
   const [interact, setInteract] = useState(false);
+
+  //state to toggle nav
+  const [nav, setNav] = useState(true);
 
   const navigate = useNavigate();
 
@@ -28,8 +37,15 @@ export default function Navbar() {
     setInteract(!interact);
   };
 
+  //handle nav toggle
+  const handleToggle = () => {
+    setNav(!nav);
+    console.log(nav);
+  };
+
   return (
     <>
+      {/* <AiOutlineMenuUnfold onClick={handleToggle} className="nav-toggle" size={25}/> */}
       <ModalInteractive
         title="Confirm"
         subtitle="Are you sure you want to Logout?"
@@ -56,9 +72,23 @@ export default function Navbar() {
             </button>
           </div>
         ) : (
-          <div className="nav-bar">
+          <div className={`nav-bar ${nav ? "show-nav" : ""}`}>
+            {nav ? (
+              <AiOutlineMenuUnfold
+                onClick={handleToggle}
+                className="nav-toggle cursor-pointer"
+                size={25}
+              />
+            ) : (
+              <AiOutlineClose
+                onClick={handleToggle}
+                className="nav-toggle cursor-pointer"
+                size={25}
+              />
+            )}
+
             <Link to="/login">
-              <button className="text-white shrink py-2">Sign In</button>
+              <button className="text-white shrink py-2 px-6">Sign In</button>
             </Link>
             <Link to="/signup">
               <button className="shrink bg-red-600 px-6 py-2 rounded cursor-pointer text-white">
