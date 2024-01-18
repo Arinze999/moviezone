@@ -60,7 +60,20 @@ export default function Navbar() {
           </h1>
         </Link>
         {user?.email ? (
-          <div className="nav-bar">
+          <div className={`nav-bar ${nav ? "show-nav" : ""}`}>
+            {nav ? (
+              <AiOutlineMenuUnfold
+                onClick={handleToggle}
+                className="nav-toggle cursor-pointer"
+                size={25}
+              />
+            ) : (
+              <AiOutlineClose
+                onClick={handleToggle}
+                className="nav-toggle cursor-pointer"
+                size={25}
+              />
+            )}
             <Link to="/account">
               <button className="text-white  shrink py-2">Account</button>
             </Link>
@@ -86,7 +99,6 @@ export default function Navbar() {
                 size={25}
               />
             )}
-
             <Link to="/login">
               <button className="text-white shrink py-2 px-6">Sign In</button>
             </Link>
