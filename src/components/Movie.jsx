@@ -15,6 +15,7 @@ import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import Imageload from "./Imageload";
 import Cast from "./Cast";
 import ModalAlert from "./ModalAlert";
+import Video from "./Video";
 
 export default function Movie({ item }) {
   // state for icons
@@ -52,6 +53,9 @@ export default function Movie({ item }) {
 
   //state for alert modal to
   const [alert, setAlert] = useState(false);
+
+  // state for video
+  const [video, setVideo] = useState(false);
 
   //function to favourite a show/movie
   const saveShow = async () => {
@@ -132,14 +136,22 @@ export default function Movie({ item }) {
   // function to open modal
   const handleShowModal = () => {
     setFullmovieModal(!fullmovieModal);
+    setVideo(false);
   };
 
-  // handle modal 
+  // handle modal
   const handleAlert = () => {
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
     }, 2000);
+  };
+
+  //handle video state
+  const handleVideo = (e) => {
+    e.preventDefault();
+    setVideo(!video);
+    console.log(video);
   };
 
   return (
@@ -160,14 +172,20 @@ export default function Movie({ item }) {
       >
         <div className={!fullmovieModal ? "" : "in-view"}>
           {imageLoading && <Imageload />}
-          <img
-            onLoad={() => setImageLoading(false)}
-            className={`rounded-md w-full h-auto block ${
-              imageLoading ? "hidden" : ""
-            }`}
-            src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
-            alt={item.title}
-          />
+          {video ? (
+            <div className="video-container">
+              <Video id={item.id} />
+            </div>
+          ) : (
+            <img
+              onLoad={() => setImageLoading(false)}
+              className={`rounded-md w-full h-auto block ${
+                imageLoading ? "hidden" : ""
+              }`}
+              src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
+              alt={item.title}
+            />
+          )}
           <div className="my-2 transition-all duration-300 text-white">
             <p
               className={
@@ -177,13 +195,23 @@ export default function Movie({ item }) {
               }
             >
               {item?.title}
+              {fullmovieModal && (
+                <button
+                  onClick={handleVideo}
+                  className="ml-2 text-sm font-thin bg-red-600 cursor-pointer p-1 rounded-md shrink"
+                >
+                  {video ? "Now Playing" : "Trailer"}
+                </button>
+              )}
             </p>
             <p className={!fullmovieModal ? "text-xs" : "text-xl"}>
               Released: {item?.release_date}
             </p>
             <div>
-            {fullmovieModal && (
-                  <p className="text-xs sm:text-md md:text-md lg:text-lg xl:text-lg whitespace-normal">{item.overview}</p>
+              {fullmovieModal && (
+                <p className="text-xs sm:text-md md:text-md lg:text-lg xl:text-lg whitespace-normal">
+                  {item.overview}
+                </p>
               )}
             </div>
             <div
