@@ -16,6 +16,7 @@ import Imageload from "./Imageload";
 import Cast from "./Cast";
 import ModalAlert from "./ModalAlert";
 import Video from "./Video";
+import Rating from "./Rating";
 
 export default function Movie({ item }) {
   // state for icons
@@ -204,6 +205,9 @@ export default function Movie({ item }) {
                 </button>
               )}
             </p>
+            <small>
+              <Rating id={item.id}/>
+              </small>
             <p className={!fullmovieModal ? "text-xs" : "text-xl"}>
               Released: {item?.release_date}
             </p>

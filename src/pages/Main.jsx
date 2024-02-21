@@ -3,6 +3,7 @@ import axios from "axios";
 import requests from "../requests";
 import Video from "../components/Video";
 import { FaPlay, FaStop } from "react-icons/fa";
+import Rating from "../components/Rating";
 
 export default function Main() {
   // STATES
@@ -38,7 +39,7 @@ export default function Main() {
   const handleVideo = (e) => {
     e.preventDefault();
     setVideo(!video);
-    console.log(video);
+    // console.log(video);
   };
 
   // Memoize the Video component to avoid unnecessary re-renders
@@ -48,6 +49,8 @@ export default function Main() {
     }
     return null;
   }, [movie]);
+
+  // console.log(movie);
 
   return (
     <>
@@ -72,6 +75,7 @@ export default function Main() {
               }`}
             >
               {movie?.title}
+              <Rating id={movie?.id}/>
             </h1>
             <div className="my-4">
               <button
