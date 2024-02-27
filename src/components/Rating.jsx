@@ -32,7 +32,7 @@ export default function Rating({ id }) {
             rating.filter((value) => typeof value === "number").length
         )
       );
-      console.log(rating);
+      // console.log(rating);
     })
     .catch(function (error) {
       console.error(error);
